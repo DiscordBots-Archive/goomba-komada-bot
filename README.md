@@ -1,5 +1,7 @@
 # goomba-komada-bot
 
+[![Discord Server](https://discordapp.com/api/guilds/410854239020253195/embed.png)](https://discord.gg/trFPmhK)
+
 Goomba Bot is a discord.js/Komada Framework bot.
 
 Installing Goomba
