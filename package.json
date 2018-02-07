@@ -1,0 +1,27 @@
+{
+  "name": "goomba-komada-bot",
+  "version": "0.0.1",
+  "description": "What am I about?",
+  "main": "mybot.js",
+  "scripts": {
+    "start": "node mybot.js"
+  },
+  "dependencies": {
+    "discord.js": "github:hydrabolt/discord.js",
+    "express": "^4.16.2",
+    "komada": "^0.21.1",
+    "snekfetch": "^3.6.4"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/welcome-project"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
