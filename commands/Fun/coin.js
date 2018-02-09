@@ -9,7 +9,7 @@ exports.conf = {
   enabled: true,
   selfbot: false,
   runIn: ["text", "dm", "group"],
-  aliases: ["coin", "flip", "flipcoin"],
+  aliases: ["coinflip", "flip", "flipcoin"],
   permLevel: 0,
   botPerms: [],
   requiredFuncs: [],
@@ -17,8 +17,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "coinflip",
-  description: "Flips a coin",
+  name: "coin",
+  description: "Flips a (semi)fair coin",
   usage: "",
   usageDelim: "",
 };

@@ -1,9 +1,3 @@
-exports.init = (client) => {
-  // Uncompatible with Komada SettingGateway.
-  const keycheck = client.funcs.confs.hasKey("minAccAge");
-  if (!keycheck) client.funcs.confs.addKey("minAccAge", 1800000);
-};
-
 exports.run = (client, msg) => {
   const accAge = msg.guildConf.minAccAge;
   const mtime = msg.createdTimestamp;
