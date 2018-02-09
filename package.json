@@ -9,6 +9,7 @@
   "dependencies": {
     "discord.js": "github:hydrabolt/discord.js",
     "express": "^4.16.2",
+    "figlet": "^1.2.0",
     "komada": "^0.21.1",
     "snekfetch": "^3.6.4"
   },
