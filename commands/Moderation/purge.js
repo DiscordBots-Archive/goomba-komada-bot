@@ -1,8 +1,15 @@
-exports.run = async (client, msg, [user = client.user, amount]) => {
-  let messages = await msg.channel.messages.fetch({ limit: amount });
-  messages = messages.filter(m => m.author.id === user.id);
-  if (client.config.selfbot) return messages.forEach(m => m.delete().catch((e) => { throw new Error(e); }));
-  return msg.channel.bulkDelete(messages);
+exports.run = async (client, msg, [user, amount]) => {
+  msg.channel.messages.fetch({
+    limit: amount,
+  }).then((messages) => {
+    if (user) {
+      const filterBy = user ? user.id : client.user.id;
+      messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+    }
+    msg.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    const modlog = msg.guild.settings.modLogChannel
+    return modlog.send(`A message purge just happened in <#${msg.channel.id}>`)
+  });
 };
 
 exports.conf = {
