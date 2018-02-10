@@ -3,7 +3,8 @@ let shortcuts = {
   "shrug": "¯\\_(ツ)_/¯",
   "justright": "✋😩👌",
   "tableflip": "(╯°□°）╯︵ ┻━┻",
-  "unflip": "┬──┬﻿ ノ( ゜-゜ノ)"
+  "unflip": "┬──┬﻿ ノ( ゜-゜ノ)",
+  "doubleflip": "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻"
 }
 let keys = Object.keys(shortcuts);
 let values = Object.values(shortcuts)

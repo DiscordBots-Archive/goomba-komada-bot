@@ -21,6 +21,8 @@ const client = new Client({
   cmdLogging: true,
 });
 
+client.logger = require(`./util/Logger`);
+
 const Helpers = [];
 const Admins = [];
 

@@ -12,7 +12,9 @@
     "fast-html-parser": "^1.0.1",
     "figlet": "^1.2.0",
     "komada": "^0.21.1",
-    "snekfetch": "^3.6.4"
+    "snekfetch": "^3.6.4",
+    "chalk": "^2.3.0",
+    "moment": "^2.20.1"
   },
   "engines": {
     "node": "8.x"
