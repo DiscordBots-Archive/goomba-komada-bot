@@ -47,7 +47,7 @@ exports.conf = {
   enabled: true,
   selfbot: false,
   runIn: ["text", "dm", "group"],
-  aliases: ["tag"],
+  aliases: ["tag", "facts"],
   permLevel: 0,
   botPerms: [],
   requiredFuncs: [],

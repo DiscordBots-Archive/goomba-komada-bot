@@ -5,7 +5,7 @@ exports.run = async (client, msg, args) => {
   const color = roll(colors)
   /* args is an array of strings which corresponds to the message split by space, with the command removed. */
   /* example: `/test blah foo thing` , where `["blah", "foo", "thing"]` is the value of `args`. */
-  msg.channel.send(`${msg.author} is petting a birb...`).then(async m => {
+  msg.channel.send(`${msg.author.username} is petting a birb...`).then(async m => {
     const req = snekfetch.get('https://random.birb.pw/tweet/')
       .send({ usingGoodRequestLibrary: true })
       .then(async r => {

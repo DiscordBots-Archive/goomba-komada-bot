@@ -1,4 +1,5 @@
 exports.run = async (client, msg, [user, amount]) => {
+  msg.delete();
   msg.channel.messages.fetch({
     limit: amount,
   }).then((messages) => {
@@ -7,7 +8,7 @@ exports.run = async (client, msg, [user, amount]) => {
       messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
     }
     msg.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-    const modlog = msg.guild.settings.modLogChannel
+    const modlog = client.channels.get(msg.guild.settings.modLogChannel)
     return modlog.send(`A message purge just happened in <#${msg.channel.id}>`)
   });
 };
@@ -26,7 +27,7 @@ exports.conf = {
 exports.help = {
   name: 'purge',
   description: 'Purges (deletes) a given number of messages, excluding the command itself.',
-  usage: "[user:mention] <amount:int{2,100}>",
+  usage: "[user:mention] <amount:int{1,100}>",
   usageDelim: " ",
   type: "commands",
 };

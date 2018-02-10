@@ -7,15 +7,15 @@ exports.run = async (client, message, args) => { // eslint-disable-line no-unuse
   "color": 4875195,
   "timestamp": new Date(),
   "footer": {
-    "icon_url": msg.author.avatarURL,
+    "icon_url": msg.author.avatarURL(),
     "text": `${client.config.prefix}ping`
   },
   "thumbnail": {
-    "url": msg.author.avatarURL
+    "url": msg.author.avatarURL()
   },
   "author": {
     "name": `${client.user.username}`,
-    "icon_url": msg.author.avatarURL
+    "icon_url": msg.author.avatarURL()
   },
   "fields": [
     {

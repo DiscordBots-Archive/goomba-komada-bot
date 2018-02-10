@@ -7,14 +7,15 @@
     "start": "node mybot.js"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "discord.js": "github:hydrabolt/discord.js",
     "express": "^4.16.2",
     "fast-html-parser": "^1.0.1",
     "figlet": "^1.2.0",
+    "js-beautify": "^1.7.5",
     "komada": "^0.21.1",
-    "snekfetch": "^3.6.4",
-    "chalk": "^2.3.0",
-    "moment": "^2.20.1"
+    "moment": "^2.20.1",
+    "snekfetch": "^3.6.4"
   },
   "engines": {
     "node": "8.x"
