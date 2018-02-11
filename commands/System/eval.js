@@ -14,7 +14,7 @@ exports.run = async (client, message, [code]) => {
       return message.channel.send(new MessageAttachment(Buffer.from(output), "output.txt"));
     }
     const embed = new MessageEmbed()
-      .setColor(randomColor)
+      .setColor("0x2ECC71")
       .setDescription(`${message.author.username}, here are the results of the \`${prefix}eval\` command`)
       .setAuthor(message.author.username, message.author.avatarURL())
       .setTimestamp()

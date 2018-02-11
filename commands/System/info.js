@@ -1,23 +1,25 @@
-const snek = require('snekfetch');
-const { version: discordVersion, MessageEmbed } = require("discord.js");
-exports.run = async (client, msg, args) => {
-const { body } = await snek.get(`https://discordbots.org/api/bots/${client.user.id}/`);
-    const embed = await new MessageEmbed()
-      .setColor(msg.guild.me.roles.highest.color || 5198940)
-      .setThumbnail(`https://cdn.discordapp.com/avatars/${body.clientid}/${body.avatar}.png`)
-      .setTitle("Discord Bot List Information")
-      .addField("ID", body.clientid, true)
-      .addField("Username", body.username, true)
-      .addField("Discriminator", body.discriminator, true)
-      .addField("Short Description", body.shortdesc, true)
-      .addField("Library", body.lib, true)
-      .addField("Prefix", body.prefix, true)
-      .addField("Upvotes", body.points, true)
-      .addField("Server Count", body.server_count, true)
-      .addField("Owner(s)", `<@${body.owners.join(">, <@")}>`, true)
-      .addField("Links", `${body.invite.length !== 0 ? `[Invite](${body.invite}) | ` : ""}${body.website.length !== 0 ? `[Website](${body.website}) | ` : "" }${body.support.length !== 0 ? `[Support Server](https://discord.gg/${body.support})` : ""}`, true)
-      .setTimestamp()
-    msg.channel.send({ embed })
+const { inspect } = require("util");
+const { MessageAttachment, MessageEmbed, version } = require("discord.js");
+const snekfetch = require("snekfetch");
+
+/* eslint-disable no-eval, consistent-return */
+const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
+exports.run = async (client, message, [args]) => {
+  const { body } = await snekfetch.get(`https://discordbots.org/api/bots/${client.user.id}/`);
+  const prefix = message.guild ? message.guild.settings.prefix : "+"
+  const embed = new MessageEmbed()
+    .setColor(message.guild.me.roles.highest.color || randomColor)
+    .addField(`**${client.user.tag}**`, `${body.shortdesc}`)
+    .addField("**Library**", `${body.lib}, ver.${version}`, true)
+    .addField("**Upvotes** on DBL", body.points, true)
+    .addField("**Owner**", `<@${body.owners.join(">, <@")}>`, true)
+    .addField("**Server Count**", body.server_count, true)
+    .addField("**Useful links**", `[Support Server](https://discord.gg/${body.support}) | [DBL Page](https://discordbots.org/bot/407272032431112202)`, true)
+    .setAuthor(client.user.username, client.user.avatarURL())
+    .setThumbnail(`https://cdn.discordapp.com/avatars/${body.clientid}/${body.avatar}.png`)
+    .setTimestamp()
+    .setFooter(`${prefix}info`)
+  return message.channel.send({ embed });
 };
 
 exports.conf = {
@@ -32,7 +34,7 @@ exports.conf = {
 
 exports.help = {
   name: "info",
-  description: "Provides some details about the bot.",
+  description: "Shows info on the bot",
   usage: "",
   usageDelim: "",
 };
