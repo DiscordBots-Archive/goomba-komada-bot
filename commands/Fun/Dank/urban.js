@@ -11,14 +11,14 @@ exports.run = async (client, msg, [search, resultNum = 0]) => {
   const wdef = result.definition.length > 1000
     ? `${client.funcs.splitText(result.definition, 1000)}...`
     : result.definition;
-  const definition = [
+  /*const definition = [
     `**Word:** ${search}`,
     "",
     `**Definition:** ${resultNum + 1} out of ${body.list.length}\n_${wdef}_`,
     "",
     `**Example:**\n${result.example}`,
     `<${result.permalink}>`,
-  ].join("\n");
+  ].join("\n");*/
   const embed = new discord.MessageEmbed()
     .setColor([29, 36, 57])
     .setThumbnail("https://burbcommunity-morethanthecurve.storage.googleapis.com/2013/09/urban-dictionary-logo.gif")
@@ -29,6 +29,7 @@ exports.run = async (client, msg, [search, resultNum = 0]) => {
     .addField("**Upvotes**", result.thumbs_up, true)
     .addField("**Downvotes**", result.thumbs_down, true)
     .addField("**Author**", result.author)
+    .addField("**Tags**", body.tags.join(", "))
     .setURL(result.permalink)
 
   return msg.channel.send({ embed });

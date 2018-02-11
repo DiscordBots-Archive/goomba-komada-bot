@@ -1,5 +1,6 @@
 const { inspect } = require("util");
 const { MessageAttachment, MessageEmbed } = require("discord.js");
+const fs = require("fs");
 
 /* eslint-disable no-eval, consistent-return */
 const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
