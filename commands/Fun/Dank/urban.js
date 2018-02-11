@@ -1,4 +1,5 @@
 const request = require("snekfetch");
+const discord = require("discord.js");
 
 exports.run = async (client, msg, [search, resultNum = 0]) => {
   const url = `http://api.urbandictionary.com/v0/define?term=${search}`;
@@ -18,8 +19,19 @@ exports.run = async (client, msg, [search, resultNum = 0]) => {
     `**Example:**\n${result.example}`,
     `<${result.permalink}>`,
   ].join("\n");
+  const embed = new discord.MessageEmbed()
+    .setColor([29, 36, 57])
+    .setThumbnail("https://burbcommunity-morethanthecurve.storage.googleapis.com/2013/09/urban-dictionary-logo.gif")
+    .setTimestamp()
+    .setAuthor(`Urban Dictionary: ${search}`, "https://burbcommunity-morethanthecurve.storage.googleapis.com/2013/09/urban-dictionary-logo.gif")
+    .addField("**Definition**", `(_${resultNum + 1} out of ${body.list.length}_)\n${wdef}`)
+    .addField("**Example**", `${result.example}`)
+    .addField("**Upvotes**", result.thumbs_up, true)
+    .addField("**Downvotes**", result.thumbs_down, true)
+    .addField("**Author**", result.author)
+    .setFooter(result.permalink, "https://burbcommunity-morethanthecurve.storage.googleapis.com/2013/09/urban-dictionary-logo.gif")
 
-  return msg.channel.send(definition);
+  return msg.channel.send({ embed });
 };
 
 exports.conf = {
@@ -30,7 +42,7 @@ exports.conf = {
   permLevel: 0,
   botPerms: [],
   requiredFuncs: ["splitText"],
-  requiredModules: ["snekfetch"],
+  requiredModules: ["snekfetch", "discord.js"],
 };
 
 exports.help = {
