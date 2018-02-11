@@ -29,7 +29,7 @@ exports.run = async (client, msg, [search, resultNum = 0]) => {
     .addField("**Upvotes**", result.thumbs_up, true)
     .addField("**Downvotes**", result.thumbs_down, true)
     .addField("**Author**", result.author)
-    .setFooter(result.permalink, "https://burbcommunity-morethanthecurve.storage.googleapis.com/2013/09/urban-dictionary-logo.gif")
+    .setURL(result.permalink)
 
   return msg.channel.send({ embed });
 };

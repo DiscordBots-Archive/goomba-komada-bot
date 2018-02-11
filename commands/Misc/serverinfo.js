@@ -11,7 +11,9 @@ exports.run = (client, msg, args) => {
     .addField("**Region**", msg.guild.region, true)
     .addField("**Members**", `${msg.guild.memberCount}`, true)
     .addField("**Bot members**", msg.guild.members.filter(m=>m.user.bot).size, true)
-    .addField("**Non-bot members**", msg.guild.memberCount - msg.guild.members.filter(m=>m.user.bot).size, true) 
+    .addField("**Non-bot members**", msg.guild.memberCount - msg.guild.members.filter(m=>m.user.bot).size, true)
+    .addField("**Roles**", `${msg.guild.roles.map(g=>`- \`${g.name}\``).sort().join('\n')}`, true)
+    .addField("**Emojis**", msg.guild.emojis.map(e => ` ${e.toString()}`).join(''), true)
   msg.channel.send({ embed });
 };
 

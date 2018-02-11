@@ -1,10 +1,15 @@
-const { version: discordVersion } = require("discord.js");
+const { version: discordVersion, MessageEmbed } = require("discord.js");
 const { version: komadaVersion, Duration } = require("komada");
+const snek = require('snekfetch');
 const moment = require("moment");
 require("moment-duration-format");
 
 exports.run = async (client, msg, args) => {
   const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
+  let totalCommands = 0;
+  client.commands.forEach(cmd => {
+    totalCommands += 1;
+  });
   const prefix = msg.guild ? msg.guild.settings.prefix : "+"
   const embed = {
     "title": "STATISTICS",
@@ -56,10 +61,14 @@ exports.run = async (client, msg, args) => {
       {
         "name": "Node.js",
         "value": `${process.version}`
+      },
+      {
+        "name": "Total Commands",
+        "value": `There's a total of ${totalCommands} commands overall. Cool, heh?`
       }
     ]
   };
-  msg.channel.send({ embed })
+  msg.channel.send({ embed });
 };
 
 exports.conf = {
@@ -74,7 +83,7 @@ exports.conf = {
 
 exports.help = {
   name: "stats",
-  description: "Provides some details about the bot and stats.",
+  description: "Provides some stats about the bot.",
   usage: "",
   usageDelim: "",
-}; 
+};
