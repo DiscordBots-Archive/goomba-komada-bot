@@ -7,7 +7,7 @@ exports.run = async (client, msg, [input]) => {
 
   const output = result.stdout ? `**\`OUTPUT\`**${"```sh"}\n${result.stdout}\n${"```"}` : "";
   const outerr = result.stderr ? `**\`ERROR\`**${"```sh"}\n${result.stderr}\n${"```"}` : "";
-  const output2 = result.stdout ? `${"```sh"}\n${result.stdout}\n${"```"}` : "Done.";
+  const output2 = result.stdout ? `${"```sh"}\n${result.stdout}\n${"```"}` : "```sh\ndone\n```";
   const outerr2 = result.stderr ? `${"```sh"}\n${result.stderr}\n${"```"}\n` : "";
   const embed = new MessageEmbed()
       .setColor("0x2ECC71")

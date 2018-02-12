@@ -11,7 +11,7 @@ exports.run = (client, message, mention) => {
       killed = [message.mentions.members.first(), killVerb, "he", "him"]
     }
     var arms = ["a 🔫 **gun**", "a 🍌 **banana**","a 📌 **pin**", "a 🎷 **sax**", "👊 **his hands**", "a 💣 **bomb**"];
-    var killMethods = [`${message.author} killed ${killed} with ${arms.random()}!`, `Turns out that ${killed[1]} dead because ${message.author} killed ${killed[3]} with ${arms.random()}!`];
+    var killMethods = [`${message.author} killed ${killed[0]} with ${arms.random()}!`, `Turns out that ${killed[1]} dead because ${message.author} killed ${killed[3]} with ${arms.random()}!`];
     var suicideMethods = [`${message.author} killed himself with ${arms.random()}!`]
     if (message.mentions.members.first().id == message.author.id) {
       message.channel.send(`❎ | Do you really want to suicide? Ok then... ${suicideMethods.random()}!`).catch(console.error);

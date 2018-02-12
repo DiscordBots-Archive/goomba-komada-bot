@@ -1,12 +1,7 @@
 exports.run = async (client, msg, [member, days = 1, ...reason]) => {
   await msg.guild.ban(member, days);
   await msg.guild.unban(member);
-  let reasn
-  if (reason[0] == "") {
-    reasn = "No reason."
-  } else {
-    reasn = reason.join(" ")
-  }
+  let reasn = reason || reason != "" ? reason.join(" ") : "No reason."
   const modlog = client.channels.get(msg.guild.settings.modLogChannel)
   return modlog.send("**" + member.user.tag + "** was softbanned. Reason: " + reasn)
   return msg.channel.send(`${member.tag} was softbanned.`);

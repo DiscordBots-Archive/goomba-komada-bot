@@ -1,5 +1,6 @@
 exports.run = async (client, message, args) => {
   message.author.send(`${client.guilds.map(g=>`${g.name} (${g.id})`).join('\n')}`, {code: "xl"});
+  message.sendMessage("📥 | Guilds have been sent to your DMs.");
 };
 
 exports.conf = {

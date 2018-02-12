@@ -12,6 +12,8 @@ setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
+const DBL = require("dblapi.js");
+
 const client = new Client({
   ownerID : "280399026749440000",
   prefix: "+",
@@ -20,6 +22,8 @@ const client = new Client({
   },
   cmdLogging: true,
 });
+
+client.dbl = new DBL(process.env.APITOKEN, client);
 
 client.logger = require(`./util/Logger`);
 

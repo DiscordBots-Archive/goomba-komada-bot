@@ -1,8 +1,14 @@
 const request = require("snekfetch");
+const discord = require("discord.js");
 
 exports.run = async (client, msg) => {
   const res = await request.get("http://api.yomomma.info").then(data => JSON.parse(data.text));
-  return msg.channel.send(`📢 **Yomomma joke:** *${res.joke}*`);
+  const embed = new discord.MessageEmbed()
+    .setColor("#e88020")
+    .setTitle("📢 **Yomomma joke**")
+    .setDescription(`*${res.joke}*`)
+    .setTimestamp()
+  return msg.channel.send(embed);
 };
 
 exports.conf = {
