@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-exports.run = (client, guild) => {
+exports.run = async (client, guild) => {
   if (guild.available) client.settings.guilds.create(guild).catch(e => client.emit("log", e, "error"));
   const channel = guild.channels.find("name", "general");
   const embed = new MessageEmbed()

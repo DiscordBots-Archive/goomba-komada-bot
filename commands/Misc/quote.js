@@ -4,31 +4,11 @@ exports.run = async (client, message, args) => {
   await message.channel.messages.fetch({around: args[0], limit: 1})
   .then(messaged => {
     const messages = messaged.first();
-    /*const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
       .setColor(4870738)
-      .setThumbnail(`${messages.author.avatarURL}`)
-      .setAuthor(`By ${messages.author.tag} (${messages.author.id})`, `${messages.author.avatarURL}`)
-      .addField("**Message content:**", `${messages.content}`, true);*/
-    const name = `By ${messages.author.tag} (${messages.author.id})`;
-    const val = messages.content;
-    const embed = {
-      "color": 4870738,
-      "thumbnail": {
-        "url": messages.author.avatarURL
-      },
-      "author": {
-        "name": name,
-        "icon_url": messages.author.avatarURL
-      },
-      "fields": [
-        {
-          "name": "**Message content:**",
-          "value": val,
-          "inline": true
-        }
-      ]
-    };
-    message.delete();
+      .setThumbnail(`${messages.author.avatarURL()}`)
+      .setAuthor(`By ${messages.author.tag} (${messages.author.id})`, `${messages.author.avatarURL()}`)
+      .addField("**Message content:**", `${messages.content}`, true);
     message.channel.send({embed})
   });
 };

@@ -1,4 +1,6 @@
 const { MessageEmbed, Collection } = require("discord.js");
+const moment = require("moment");
+require("moment-duration-format");
 const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 exports.run = (client, msg, args) => {
   const command = args[0] ? args[0].toLowerCase() : "";
@@ -25,13 +27,16 @@ exports.run = (client, msg, args) => {
         .setThumbnail(msg.guild.iconURL())
         .addField("**Server ID**", msg.guild.id, true)
         .addField("**Server Name**", `${msg.guild.name} (${msg.guild.nameAcronym})`, true)
+        .addField("**Verification level**", `${msg.guild.verificationLevel}`, true)
         .addField("**Owner**", msg.guild.owner.user.tag, true)
         .addField("**Region**", msg.guild.region, true)
         .addField("**Members**", `${msg.guild.memberCount}`, true)
         .addField("**Bot members**", msg.guild.members.filter(m=>m.user.bot).size, true)
         .addField("**Non-bot members**", msg.guild.memberCount - msg.guild.members.filter(m=>m.user.bot).size, true)
+        .addField("**Large**", `${msg.guild.large ? "Yes" : "No"}`, true)
         .addField("**Roles**", `${roles}`, true)
         .addField("**Emojis**", emojis, true)
+        .addField("**Created at**", `${moment.utc(msg.guild.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`)
       msg.channel.send({ embed });
   }
 };

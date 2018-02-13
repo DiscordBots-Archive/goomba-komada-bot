@@ -28,7 +28,7 @@ exports.run = (client, msg, args) => {
       .addField("Playing", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Not playing anything."}`, true)
       .addField("Roles", `${member.roles.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`, true)
       .addField("Joined At", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
-      .addField("Created At", `${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true);
+      .addField("Created At", `${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")} ${"<a" + ":cursor:404001393360502805>"}`, true);
     
 
     m.edit({ embed });
