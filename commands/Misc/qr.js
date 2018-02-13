@@ -1,5 +1,6 @@
 const { MessageEmbed: msgmb } = require('discord.js');
-exports.run = async (client, msg, [args]) => {
+exports.run = async (client, msg, [...arg]) => {
+  var args = arg.join(" ");
   const embed = new msgmb()
     .setTitle("Here's your QR:")
     .setImage(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(args)}`)

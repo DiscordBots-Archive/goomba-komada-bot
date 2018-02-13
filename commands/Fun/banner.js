@@ -1,8 +1,8 @@
-const figletAsync = require("util").promisify(require("figlet"));
-
+const { MessageEmbed: RichEmbed } = require('discord.js');
 exports.run = async (client, msg, [banner]) => {
-  const data = await figletAsync(banner);
-  return msg.channel.send(data, { code: true });
+  const embed = new RichEmbed()
+    .setImage(`https://dummyimage.com/2000x500/36393e/ffffff&text=${encodeURIComponent(banner)}`)
+  return msg.channel.send(/*"https://dummyimage.com/2000x500/36393e/ffffff&text=Testing"*/embed);
 };
 
 exports.conf = {
@@ -13,12 +13,12 @@ exports.conf = {
   permLevel: 0,
   botPerms: [],
   requiredFuncs: [],
-  requiredModules: ["figlet"],
+  requiredModules: [],
 };
 
 exports.help = {
   name: "banner",
-  description: "Creates an ASCII banner from the string you supply",
+  description: "Creates a big banner from the string you supply",
   usage: "<banner:str>",
   usageDelim: "",
 };

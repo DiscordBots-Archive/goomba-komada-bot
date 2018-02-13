@@ -1,4 +1,7 @@
-exports.run = (client, msg, [repeatness]) => msg.channel.send(`${repeatness} (Requested by ${msg.author.username})`);
+exports.run = (client, msg, [repeatnes]) => {
+  const repeatness = client.dbl.hasVoted(msg.author.id) ? `${repeatnes}` : `${repeatnes} (Requested by ${msg.author.username})`
+  msg.channel.send(`${repeatness} (Requested by ${msg.author.username})`);
+}
 
 exports.conf = {
   enabled: true,
@@ -17,4 +20,5 @@ exports.help = {
   usage: "<whatToSay:str>",
   usageDelim: "",
   type: "commands",
+  extendedHelp: "Vote the bot on DBL to remove the (Requested by name) part"
 };
