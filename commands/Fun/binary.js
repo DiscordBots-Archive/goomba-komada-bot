@@ -1,5 +1,5 @@
 const textanary = require("textanary");
-exports.run = (client, msg, [txt]) => {
+exports.run = async (client, msg, [txt]) => {
   let hey = txt
   const check = str => {
     const num = /^[0-1]*$/gm;

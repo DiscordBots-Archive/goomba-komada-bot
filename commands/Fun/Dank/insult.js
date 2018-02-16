@@ -6,7 +6,7 @@ const end = ["pilot", "canoe", "captain", "pirate", "hammer", "cunt", "knob", "b
 
 const roll = type => type[Math.floor(Math.random() * type.length)];
 
-exports.run = (client, msg, [user]) => {
+exports.run = async (client, msg, [user]) => {
   msg.channel.send(`${user}, you know what? you're nothing but ${roll(start)} ${roll(middle)} ${roll(end)}.`);
   if (msg.mentions.members.first().id == msg.author.id) {
     msg.channel.send(`${user}, did you just insult yourself? :joy: 🔔 SHAME 🔔 ${user} 🔔 SHAME 🔔 :joy:.`);

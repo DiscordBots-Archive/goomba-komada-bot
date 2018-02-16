@@ -1,4 +1,4 @@
-exports.run = (client, msg, [repeatnes]) => {
+exports.run = async (client, msg, [repeatnes]) => {
   msg.channel.send(`${repeatnes}`);
 }
 

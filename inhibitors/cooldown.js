@@ -3,7 +3,7 @@ exports.run = (client, msg, cmd) => {
   const cooldown = cmd.conf.cooldown || 2500;
   if (!cmd.cooldown) cmd.cooldown = new Map();
   const remaining = (cooldown - (Date.now() - cmd.cooldown.get(msg.author.id))) / 1000;
-  if (cmd.cooldown.has(msg.author.id)) return `You are being ratelimited. Wait until ${remaining}s`;
+  if (cmd.cooldown.has(msg.author.id)) return `Chill! Don't spam commands. Wait until ${remaining}s`;
   cmd.cooldown.set(msg.author.id, Date.now());
   setTimeout(() => cmd.cooldown.delete(msg.author.id), cooldown);
   return false;

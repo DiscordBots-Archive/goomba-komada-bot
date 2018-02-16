@@ -1,4 +1,4 @@
-exports.run = (client, message, mention) => {
+exports.run = async (client, message, mention) => {
     Array.prototype.random = function() {
       return this[Math.floor(Math.random() * this.length)]
     };

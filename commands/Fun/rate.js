@@ -1,6 +1,6 @@
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-exports.run = (client, message, [...whatToRateRaw]) => {
+exports.run = async (client, message, [...whatToRateRaw]) => {
     var whatToRate = whatToRateRaw.join(" ");
     if (!whatToRate) return message.reply("please say **something** to rate.");
     message.channel.send(`🎰 | I would rate ${whatToRate} ${rand(0, 10)}/10!`).catch(console.error);

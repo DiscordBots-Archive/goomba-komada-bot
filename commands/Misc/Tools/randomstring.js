@@ -1,5 +1,5 @@
 const uniqueString = require('unique-string');
-exports.run = (client, msg, args) => {
+exports.run = async (client, msg, args) => {
   msg.channel.send(`\`\`\`${uniqueString()}\`\`\``);
 }
 

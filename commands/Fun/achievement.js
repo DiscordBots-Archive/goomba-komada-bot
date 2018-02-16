@@ -1,13 +1,12 @@
 const snekfetch = require('snekfetch');
-exports.run = (client, msg, args) => {
-  let [title, contents] = args.join(" ").split("|");
+exports.run = async (client, msg, [title, contents]) => {
   if(!contents) {
     [title, contents] = ["Achievement Get!", title];
   }
   let rnd = Math.floor((Math.random() * 39) + 1);
-  if(args.join(" ").toLowerCase().includes("burn")) rnd = 38;
-  if(args.join(" ").toLowerCase().includes("cookie")) rnd = 21;
-  if(args.join(" ").toLowerCase().includes("cake")) rnd = 10;
+  if(contents.toLowerCase().includes("burn") || title.toLowerCase().includes("burn")) rnd = 38;
+  if(contents.toLowerCase().includes("cookie") || title.toLowerCase().includes("cookie")) rnd = 21;
+  if(contents.toLowerCase().includes("cake") || title.toLowerCase().includes("cake")) rnd = 10;
   
   const url = `https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`;
   snekfetch.get(url)
@@ -28,6 +27,6 @@ exports.conf = {
 exports.help = {
    name: "achievement",
    description: "Sends a Minecraft Achievement image.",
-   usage: "<title:str{1,22}> <subtitle:str{1,22}>",
+   usage: "<title:str{1,22}> [subtitle:str{1,22}]",
    usageDelim: "|",
  };

@@ -1,4 +1,4 @@
-exports.run = (client, msg, [user]) => msg.channel.send(`🔔 SHAME 🔔 ${user} 🔔 SHAME 🔔`);
+exports.run = async (client, msg, [user]) => msg.channel.send(`🔔 SHAME 🔔 ${user} 🔔 SHAME 🔔`);
 
 exports.conf = {
   enabled: true,

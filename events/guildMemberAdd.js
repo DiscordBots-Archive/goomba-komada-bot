@@ -15,8 +15,8 @@ const ord = number => {
 const { MessageEmbed } = require("discord.js");
 exports.run = (client, member) => {
   if (member.guild.settings.welcOn) {
-    const message = member.guild.settings ? member.guild.settings.welcomeMessage.replace("{{guild}}", member.guild.name).replace("{{user}}", `<@${member.id}>`).replace("{{num}}", `${member.guild.memberCount}${ord(member.guild.memberCount)}`) : "Hello!";
-    console.log(member.id + " joined " + member.guild.name);
+    const message = member.guild.settings ? member.guild.settings.welcomeMessage.replace("{{guild}}", member.guild.name).replace("{{user}}", `${member.user.tag}`).replace("{{num}}", `${member.guild.memberCount}${ord(member.guild.memberCount)}`) : "Hello!";
+    console.log(member.user.username + " joined " + member.guild.name);
     const embed = new MessageEmbed()
     client.channels
       .get(member.guild.settings.welcomeChannel)

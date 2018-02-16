@@ -1,8 +1,9 @@
 const { MessageEmbed, Collection } = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
+var color = require('dominant-color');
 const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
-exports.run = (client, msg, args) => {
+exports.run = async (client, msg, args) => {
   const command = args[0] ? args[0].toLowerCase() : "";
   switch (command) {
     case "emoji":
@@ -11,7 +12,7 @@ exports.run = (client, msg, args) => {
       break;
     case "role":
     case"roles" :
-      msg.channel.send(`**Guild roles**:\n${msg.guild.roles.map(g=>`- \`${g.name}\``).sort().join('\n')}`)
+      msg.channel.send(`**Guild roles**:\n${msg.guild.roles.map(g=>`- \`${g.name} (${g.id})\``).sort().join('\n')}`)
       break;
     default :
       let emojis = 0, roles = 0;

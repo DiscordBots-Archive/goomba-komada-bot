@@ -1,5 +1,5 @@
 const snekfetch = require("snekfetch");
-exports.run = (client, msg, args) => {
+exports.run = async (client, msg, args) => {
   const colors = [15386243, 5198940]
   const roll = type => type[Math.floor(Math.random() * type.length)];
   /* args is an array of strings which corresponds to the message split by space, with the command removed. */

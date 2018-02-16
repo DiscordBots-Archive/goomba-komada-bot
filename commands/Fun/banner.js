@@ -1,7 +1,7 @@
 const { MessageEmbed: RichEmbed } = require('discord.js');
 exports.run = async (client, msg, [banner]) => {
   const embed = new RichEmbed()
-    .setImage(`https://dummyimage.com/2000x500/36393e/ffffff&text=${encodeURIComponent(banner)}`)
+    .setImage(`https://dummyimage.com/2000x500/33363c/ffffff&text=${encodeURIComponent(banner)}`)
   return msg.channel.send(/*"https://dummyimage.com/2000x500/36393e/ffffff&text=Testing"*/embed);
 };
 

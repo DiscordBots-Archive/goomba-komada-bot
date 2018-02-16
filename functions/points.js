@@ -1,6 +1,6 @@
 const provider = "json";
 
-module.exports = async (client, user, action) => {
+module.exports = async (client, msg, user, action) => {
   let row = await this.provider.get("quiz", user);
   if (!row) {
     await this.provider.create("quiz", user, { points: 0 });
@@ -17,6 +17,8 @@ module.exports = async (client, user, action) => {
     case "reset":
       points = 0;
       break;
+    case "get":
+      msg.reply("You've got " + points + " points.")
     // no default
   }
   await this.provider.update("quiz", user, { points });
