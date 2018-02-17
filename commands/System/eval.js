@@ -5,6 +5,9 @@ const fs = require("fs");
 /* eslint-disable no-eval, consistent-return */
 const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
 exports.run = async (client, message, [code]) => {
+  let msg = message,
+      guild = msg.guild,
+      user = msg.author;
   const prefix = message.guild ? message.guild.settings.prefix : "+"
   try {
     let evaled = eval(code);
@@ -15,7 +18,7 @@ exports.run = async (client, message, [code]) => {
       return message.channel.send(new MessageAttachment(Buffer.from(output), "output.txt"));
     }
     const embed = new MessageEmbed()
-      .setColor("0x2ECC71")
+      .setColor(0x10ce66)
       .setDescription(`${message.author.username}, here are the results of the \`${prefix}eval\` command`)
       .setAuthor(message.author.username, message.author.avatarURL())
       .setTimestamp()
@@ -24,14 +27,14 @@ exports.run = async (client, message, [code]) => {
       .setFooter(`${prefix}eval`)
     return message.channel.send(/*"js", output*/{ embed });
   } catch (err) {
-    /*const errorEmbed = new MessageEmbed()
+    const errorEmbed = new MessageEmbed()
       .setColor("0xE20D0D")
-      .setDescription(`${message.author.username}, the \`${prefix}eval\` returned an error`)
+      .setDescription(`${message.author.username}, the \`${prefix}eval\` command returned an error`)
       .setAuthor(message.author.username, message.author.avatarURL())
       .setTimestamp()
       .addField(":inbox_tray: **INPUT**", `\`\`\`js\n${code}\n\`\`\``)
       .addField(":outbox_tray: **OUTPUT**", `\`\`\`js\n${client.funcs.clean(client, err)}\n\`\`\``)
-      .setFooter(`${prefix}eval`)*/
+      .setFooter(`${prefix}eval`)
     /*const errorEmbed = {
       "description": `${message.author.username}, the \`${prefix}eval\` returned an error`,
       "color": 10682368,
@@ -55,7 +58,7 @@ exports.run = async (client, message, [code]) => {
       ]
     };
     message.channel.send({ errorEmbed });*/
-    message.channel.send(`\`ERROR\` \`\`\`js\n${client.funcs.clean(client, err)}\n\`\`\``);
+    message.channel.send(/*`\`ERROR\` \`\`\`js\n${client.funcs.clean(client, err)}\n\`\`\``*/errorEmbed);
     if (err.stack) client.emit("error", err.stack);
   }
 };

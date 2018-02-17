@@ -3,7 +3,7 @@ const { URLSearchParams } = require("url");
 const discord = require("discord.js");
 
 exports.run = async (client, msg, [up, mid1, mid2, down]) => {
-  const meme = await fourMeme(93895088, up, mid1, mid2, down);
+  const meme = await fourMeme(93895088, up.toUpperCase(), mid1.toUpperCase(), mid2.toUpperCase(), down.toUpperCase());
   const embed = new discord.MessageEmbed()
     .setImage(meme)
     .setFooter(`Requested by ${msg.author.username}`)

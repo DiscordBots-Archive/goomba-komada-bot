@@ -24,7 +24,7 @@ exports.conf = {
 
 exports.help = {
   name: "test",
-  description: "Evaluates arbitrary Javascript. Reserved for bot owner.",
+  description: "Test command.",
   usage: "",
   usageDelim: "",
 };

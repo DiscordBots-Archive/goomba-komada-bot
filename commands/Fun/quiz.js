@@ -9,7 +9,8 @@ const quiz = [
   { q: "Where is the bot hosted on?", a: ["glitch.com", "glitch"] },
   { q: "If A = B and C = B, is A = C?", a: ["yes", "yeah"] },
   { q: "What is the bot's token?", a: ["idk", "i don't know", "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0"] },
-  { q: "What lib is this bot programmed on", a: ["discord.js", "komada"] },
+  { q: "What lib is this bot **not** programmed on?", a: ["dsharpplus", "no u"] },
+  { q: "What is the square root of **fool**?", a: ["you", "u", "no u"] },
 ];
 
 const options = {
