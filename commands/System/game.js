@@ -9,7 +9,7 @@ exports.conf = {
   selfbot: false,
   runIn: ["text", "dm", "group"],
   aliases: ["setgame", "gameset"],
-  permLevel: 10,
+  permLevel: 8,
   botPerms: [],
   requiredFuncs: [],
   requiredModules: [],

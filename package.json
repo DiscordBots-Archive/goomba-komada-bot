@@ -29,8 +29,10 @@
     "textanary": "^4.0.0",
     "to-markdown": "^3.1.1",
     "translate": "^1.0.2",
+    "uglify-js": "^3.3.11",
     "unique-string": "^1.0.0",
     "weather-js": "^2.0.0",
+    "weeb-sh": "^0.3.3",
     "yahoo-weather": "^2.2.2"
   },
   "engines": {
