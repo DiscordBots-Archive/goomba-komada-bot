@@ -19,8 +19,8 @@ const generateMessage = (message) => {
 };
 
 exports.run = async (client, msg, [message]) => {
-  const channel = msg.guild.channels.find("name", "starboard");
-  if (!channel) return msg.channel.send("Please create the _starboard_ channel and try again.");
+  const channel = msg.guild.channels.get("name", msg.guild.settings.starboard);
+  if (!channel) return msg.channel.send("Please create the _starboard_ channel, set it and try again.");
   if (channel.postable === false) return msg.channel.send(`I require the permission SEND_MESSAGES to post messages in ${channel} channel.`);
   if (!(await this.provider.has("starboard", message.guild.id))) await this.provider.set("starboard", message.guild.id, JSON.stringify([]));
   const msgArray = JSON.parse(await this.provider.get("starboard", message.guild.id));
