@@ -1,0 +1,8 @@
+language: node_js
+sudo: enabled
+os: ubuntu
+before_install:
+ - node update
+script: node mybot.js
+deploy:
+  skip_cleanup: true
