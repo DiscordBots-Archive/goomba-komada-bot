@@ -5,7 +5,7 @@ exports.run = async (client, msg, [id]) => {
   if (id) {
     const embed = await new discord.MessageEmbed()
       .setTitle(`Here's ${id.username}'s avatar`)
-      .setImage(id.avatarURL({ format: "png", size: 1024 }))
+      .setImage(id.avatarURL({ size: 1024 }))
       .setTimestamp()
     return msg.channel.send(embed)
   }

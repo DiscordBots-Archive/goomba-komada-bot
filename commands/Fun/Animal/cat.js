@@ -10,7 +10,6 @@ exports.run = async (client, msg, args) => {
       .then(async r => {
       await m.edit({
         embed: {
-          "title": "Click here if the image failed to load.",
           "url": `${r.body.file}`,
           "color": roll(colors),
           "image": {
