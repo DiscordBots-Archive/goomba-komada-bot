@@ -30,7 +30,6 @@ exports.help = {
   type: "commands",
 };
 
-
 function parseTime(input) {
 	const remindTime = parse(input);
 	return remindTime;
