@@ -22,10 +22,12 @@ exports.run = async (client, msg, [cmd]) => {
     for (let subCat = 0; subCat < subCategories.length; subCat++) helpMessage.push(`= ${subCategories[subCat]} =`, `${help[categories[cat]][subCategories[subCat]].join("\n")}\n`);
     helpMessage.push("```\n\u200b");
   }
+  const prefix = msg.guildSettings.prefix || client.config.prefix;
+  const prefix2 = msg.guildSettings.prefix2 || client.config.prefix2;
   await msg[method].send(helpMessage, { split: { char: "\u200b" } })
     .then(() => { if (msg.channel.type !== "dm" && client.user.bot) msg.sendMessage("📥 | Commands have been sent to your DMs."); })
     .catch(() => { if (msg.channel.type !== "dm" && client.user.bot) msg.sendMessage("❌ | You have DMs disabled, I couldn't send you the commands in DMs."); });
-  return msg[method].send("Tip: random things such as `/lenny` and `/shrug` are not auto responses and are prefixed by `/`.")
+  return msg[method].send(`Tip: random things such as \`${prefix2}lenny\` and \`${prefix2}shrug\` are not auto responses and are prefixed by \`${prefix2}\`.`)
 };
 
 exports.conf = {

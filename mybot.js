@@ -52,4 +52,9 @@ client.dbl = new DBL(process.env.APITOKEN, client);
 
 client.logger = require(`./util/Logger`);
 
+client.timers = {
+  names: [],
+  times: [],
+}
+
 client.login(process.env.TOKEN);
