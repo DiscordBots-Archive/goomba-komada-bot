@@ -1,8 +1,9 @@
 const discord = require("discord.js");
 const translate = require('google-translate-api');
 exports.run = async (client, msg, args) => {
-  const [lang, ...txt] = await args;
-  const string = String(txt)
+  const [lang, ...text] = await args;
+  const txt = text.join(" ");
+  const string = String(txt);
   try{
     await translate(/*"Hello world"*/string, { to: lang }).then(translation => {
       const embed = new discord.MessageEmbed()
@@ -51,7 +52,7 @@ exports.conf = {
 exports.help = {
   name: "translate",
   description: "Translates the given text in the given language.",
-  usage: "<langTo:str> <text:str>",
-  usageDelim: "|",
+  usage: "<langTo:str> <text:str> [...]",
+  usageDelim: " ",
 //extendedHelp: "Powered by Yandex.Translate"
 };

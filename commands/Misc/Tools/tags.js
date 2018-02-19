@@ -21,6 +21,7 @@ exports.run = async (client, msg, [action, ...contents]) => {
     case "delete": {
       const row = await this.provider.get("tags", contents);
       if (!row) return msg.reply("this tag doesn't seem to exist.");
+      if (row.guild != msg.guild.id) return msg.reply("this tag doesn't seem to exist.");
       await this.provider.delete("tags", row.id).catch(e => msg.reply(`I wasn't able to delete the tag because of the following reason: \n${e}`));
       return msg.reply("the tag has been deleted. It's gone. For real, it no longer exists. It's pushing up the daisies.");
     }

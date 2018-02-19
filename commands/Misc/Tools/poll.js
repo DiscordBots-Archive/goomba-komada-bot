@@ -15,18 +15,17 @@ const emojiValues = {
 	10: '🔟'
 };
 
-exports.run = async (client, msg, [time, title, ...options]) => {
-		const timeObject = parseTime(time);
-		time = timeObject.startDate.getTime() - Date.now();
+exports.run = async (client, msg, [Taim, title, ...options]) => {
 		const collection = createCollection(options, emojiValues);
+	const timeObject = parseTime(Taim);
+	const time = timeObject.startDate.getTime() - Date.now();
 
 		const embed = new RichEmbed()
 			.setAuthor(msg.author.username, msg.author.avatarURL())
 			.setTitle('New poll by ' + msg.author.username)
       .setDescription("**" + title + "**")
 			.setColor('#4286f4')
-			.addField('Options', collection.map(object => `${object.emoji} ${object.option}`).join('\n'))
-			.setFooter(`This poll will last ${format(time / 1000)}`);
+			.addField('Options', collection.map(object => `${object.emoji} **|** ${object.option}`).join('\n'))
 
 		const sent = await msg.channel.send({ embed });
 
@@ -66,7 +65,7 @@ exports.run = async (client, msg, [time, title, ...options]) => {
 					.setColor('#d6152f')
 					.setTitle('Poll Closed!')
           .setDescription("**" + title + "**")
-					.addField('Result:', `The winner is:\n${collection.find('emoji', reactions.first().emoji.name).option}`);
+					.addField('Result:', `${collection.find('emoji', reactions.first().emoji.name).option}`);
 				await sent.edit({ embed: editEmbed });
 			}
 		});
@@ -85,7 +84,7 @@ exports.conf = {
   enabled: true,
   runIn: ["text", "dm", "group"],
   aliases: [],
-  permLevel: 10,
+  permLevel: 0,
   botPerms: [],
   requiredFuncs: [],
 };
@@ -98,6 +97,11 @@ exports.help = {
   type: "commands",
 };
 
+function parseTime(input) {
+	const remindTime = parse(input);
+	return remindTime;
+}
+
 function createCollection(array, emojiValues) {
 	const iterable = [];
 	for (let i = 0; i < array.length; i++) {
@@ -105,20 +109,4 @@ function createCollection(array, emojiValues) {
 		iterable.push([key, { emoji: emojiValues[key], option: array[i] }]);
 	}
 	return new Collection(iterable);
-}
-
-function parseTime(input) {
-	const remindTime = parse(input);
-	return remindTime;
-}
-
-function addZero(seconds) {
-	return (seconds < 10 ? '0' : '') + seconds;
-}
-
-function format(seconds) {
-	let hours = Math.floor(seconds / (60 * 60));
-	let minutes = Math.floor(seconds % (60 * 60) / 60);
-	let seconds2 = Math.floor(seconds % 60);
-	return `${addZero(hours)}:${addZero(minutes)}:${addZero(seconds2)}`;
 }

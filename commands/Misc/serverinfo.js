@@ -7,11 +7,12 @@ exports.run = async (client, msg, args) => {
   const command = args[0] ? args[0].toLowerCase() : "";
   switch (command) {
     case "emoji":
-    case "emojis" :
+    case "emojis":
+    case "emotes":
       msg.channel.send(`**Guild emojis**: ${msg.guild.emojis.map(e => `${e.toString()}`).join(' ')}`)
       break;
     case "role":
-    case"roles" :
+    case "roles":
       msg.channel.send(`**Guild roles**:\n${msg.guild.roles.map(g=>`- \`${g.name} (${g.id})\``).sort().join('\n')}`)
       break;
     default :
