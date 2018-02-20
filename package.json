@@ -1,6 +1,6 @@
 {
   "name": "goomba-komada-bot",
-  "version": "1.0a",
+  "version": "0.0.1",
   "description": "What am I about?",
   "main": "mybot.js",
   "scripts": {
