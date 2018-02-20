@@ -9,10 +9,10 @@ exports.run = async (client, msg, [input]) => {
   const outerr = result.stderr ? `**\`ERROR\`**${"```sh"}\n${result.stderr}\n${"```"}` : "";
   const output2 = result.stdout ? `${"```sh"}\n${result.stdout}\n${"```"}` : "```sh\ndone\n```";
   const outerr2 = result.stderr ? `${"```sh"}\n${result.stderr}\n${"```"}\n` : "";
-  if (output2.length > 1992) {
+  if (output2.length > 1024) {
     return msg.channel.send(new MessageAttachment(Buffer.from(output2), "output.txt"));
   }
-  if (outerr2.length > 1992) {
+  if (outerr2.length > 1024) {
     return msg.channel.send(new MessageAttachment(Buffer.from(outerr2), "outerr.txt"));
   }
   const embed = new MessageEmbed()
