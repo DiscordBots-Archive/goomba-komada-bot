@@ -63,6 +63,10 @@ exports.run = async (client, msg, args) => {
         "value": `${process.version}`
       },
       {
+        "name": "Bot Version",
+        "value": `${client.version}`
+      },
+      {
         "name": "Total Commands",
         "value": `There's a total of ${totalCommands} commands overall. Cool, heh?`
       }

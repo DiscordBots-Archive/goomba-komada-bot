@@ -43,6 +43,9 @@ const client = new Client({
     fetchAllMembers: true,
   },
   cmdLogging: true,
+  console: {
+    useColors: false,
+  },
 });
 
 client.BugHook = new WebhookClient(process.env.BWH_ID, process.env.BWH_TOKEN);
@@ -56,5 +59,7 @@ client.timers = {
   names: [],
   times: [],
 }
+
+client.version = "1.0a"
 
 client.login(process.env.TOKEN);

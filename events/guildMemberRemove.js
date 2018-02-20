@@ -3,7 +3,6 @@ exports.run = (client, member) => {
     const message = member.guild.settings.goodbyeMessage
       .replace("{{user}}", `${member.user.username}`)
       .replace("{{num}}", `${member.guild.memberCount}`);
-    console.log(member.user.username + " got outta " + member.guild.name);
     client.channels
       .get(member.guild.settings.welcomeChannel)
       .send(message)

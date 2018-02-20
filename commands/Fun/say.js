@@ -11,6 +11,7 @@ exports.conf = {
   botPerms: [],
   requiredFuncs: [],
   requiredModules: [],
+  cooldown: 5000,
 };
 
 exports.help = {

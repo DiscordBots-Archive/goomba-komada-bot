@@ -2,9 +2,9 @@
   "name": "goomba-komada-bot",
   "version": "0.0.1",
   "description": "What am I about?",
-  "main": "mybot.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node mybot.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "bufferutil": "^3.0.3",
@@ -26,6 +26,7 @@
     "opusscript": "0.0.6",
     "qr-image": "^3.2.0",
     "return-deep-diff": "^0.2.9",
+    "safe-eval": "^0.3.0",
     "sherlockjs": "^1.3.7",
     "snekfetch": "^3.6.4",
     "systeminformation": "^3.37.2",
@@ -39,16 +40,16 @@
     "yahoo-weather": "^2.2.2",
     "ytdl-core": "^0.20.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Samplasion/goomba-komada-bot.git"
-  },
   "engines": {
-    "node": "8.x",
-    "npm": "*"
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/welcome-project"
   },
   "license": "MIT",
   "keywords": [
-    "node"
+    "node",
+    "glitch",
+    "express"
   ]
 }
