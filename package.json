@@ -44,10 +44,11 @@
     "url": "git+https://github.com/Samplasion/goomba-komada-bot.git"
   },
   "engines": {
-    "node": "8.x"
+    "node": "8.x",
+    "npm": "*",
   },
   "license": "MIT",
   "keywords": [
-    "node",
+    "node"
   ]
 }
