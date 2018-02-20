@@ -1,6 +1,7 @@
 const { Client, PermLevels } = require("komada");
 const { WebhookClient } = require("discord.js");
 const cfg = require("./config.js");
+/*
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -12,6 +13,7 @@ app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
+*/
 
 const DBL = require("dblapi.js");
 
