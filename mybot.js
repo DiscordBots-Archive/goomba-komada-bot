@@ -1,5 +1,5 @@
 const { Client, PermLevels } = require("komada");
-const { WebhookClient } = require("discord.js");
+const { WebhookClient, Collection } = require("discord.js");
 const cfg = require("./config.js");
 /*
 const http = require('http');
@@ -63,5 +63,6 @@ client.timers = {
 }
 
 client.version = "1.0a"
+client.queue = new Collection();
 
 client.login(process.env.TOKEN);
