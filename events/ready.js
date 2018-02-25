@@ -13,10 +13,10 @@ const snekfetch = require('snekfetch')
       .catch(err => console.error(`Whoops something went wrong: ${err.body}`));
   }, 3600000)*/
 client.dbl.postStats(client.guilds.size)
-  .then(() => console.log('Updated discordbots.org stats.'));
+  .then(() => client.console.log('Updated discordbots.org stats.'));
 setInterval(() => {
   client.dbl.postStats(client.guilds.size)
-    .then(() => console.log('Updated discordbots.org stats.'));
+    .then(() => client.console.log('Updated discordbots.org stats.'));
 }, 1800000);
   const activityMessages = [`Help for ${client.guilds.size} total guilds`, `Help for ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users`, `Help for ${client.channels.size.toLocaleString()} total channels`, `Type +help for a list of commands`];
   client.user.setActivity(activityMessages[1], {type: 0});

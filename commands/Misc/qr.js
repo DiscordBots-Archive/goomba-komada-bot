@@ -21,5 +21,5 @@ exports.help = {
   name: "qr",
   description: "Creates a QR code.",
   usage: "<text:str>",
-  usageDelim: " ",
+  usageDelim: "",
 };

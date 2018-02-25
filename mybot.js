@@ -62,7 +62,11 @@ client.timers = {
   times: [],
 }
 
-client.version = "1.0a"
+client.ttt = {
+  status: [],
+}
+
+client.version = "1.0b"
 client.queue = new Collection();
 
 client.login(process.env.TOKEN);
