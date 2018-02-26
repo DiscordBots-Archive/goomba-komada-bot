@@ -1,5 +1,5 @@
 var TicTacToe = require('tictactoejs');
-var Chess = require('./chess');
+var Chess = require('chess');
 
 /*
 client.chess = {

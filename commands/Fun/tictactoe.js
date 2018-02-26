@@ -17,6 +17,7 @@ exports.run = async (client, msg, [command, move]) => {
     return client.ttt.status[msg.author.id] = game;
   }
   game = client.ttt.status[msg.author.id];
+  if(!move || move == undefined) return msg.reply("hey, where do you want to move?")
   const moves = move.split(","); 
   // console.log(moves);
   const col = parseInt(moves[0]), row = parseInt(moves[1])
