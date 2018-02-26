@@ -87,7 +87,7 @@ exports.run = async (client, msg, [command, move]) => {
 exports.conf = {
   enabled: true,
   runIn: ["text", "dm", "group"],
-  aliases: [],
+  aliases: ["ttt"],
   permLevel: 0,
   botPerms: ["SEND_MESSAGES"],
   requiredFuncs: [],
@@ -95,7 +95,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "ttt",
+  name: "tictactoe",
   description: "A very basic tic-tac-toe command.",
   usage: "<new|move> [move:str]",
   usageDelim: " ",

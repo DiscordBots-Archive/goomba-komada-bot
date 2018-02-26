@@ -66,6 +66,10 @@ client.ttt = {
   status: [],
 }
 
+client.chess = {
+  status: [],
+}
+
 client.version = "1.0b"
 client.queue = new Collection();
 
